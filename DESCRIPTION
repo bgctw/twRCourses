@@ -1,10 +1,10 @@
-Package: templateProject
+Package: twRCourses
 Title: Descriptive Title
-Version: 1.0
-Date: 2010-10-15
+Version: 0.4
+Date: 2012-04-01
 Author: Thomas Wutzler
 Maintainer: Thomas Wutzler <twutz@bgc-jena.mpg.de>
-Description: Some longer description
+Description: collecting source code and presentations for R courses
 License: GPL-2
 LazyLoad: yes
 Depends: R (>= 1.10.0)
