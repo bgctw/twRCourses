@@ -9,7 +9,7 @@ new_CircleTable <- function(id,radius=1, x=5, y=5){
 	structure( list(id=id, radius=radius, x=x, y=y), class=c("CircleTable","Table") )}
 
 print.Table <- function(x){
-	print(paste("Class of type ",class(x)[1]," with (x,y)=(", 
+	print(paste(x$id," of class ",class(x)[1]," with (x,y)=(", 
 			paste( signif(c(x$x,x$y),2), collapse=","),")",sep=""))} 
 (t1 <- new_SquareTable("Table1"))
 
