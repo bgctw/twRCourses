@@ -6,6 +6,14 @@ f <- function(n, x=1) for (i in 1:n) x=1/(1+x)
 lf <- cmpfun(f)
 benchmark(f(1e4,1), lf(1e4,1) )		# speedup of 4 to 5
 
+
+#------- vectorizing example 
+x <- sample.int(10)
+y <- numeric(length(x)-1)
+for( i in 1:(length(x)-1) )
+	y[i] <- x[i] + 2*x[i+1] 
+y2 <- x[-length(x)] + 2*x[-1]
+
 #------- inline c++ code
 library(inline)
 src <- 'int n = as<int>(ns);
