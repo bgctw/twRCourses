@@ -7,5 +7,5 @@ Maintainer: Thomas Wutzler <twutz@bgc-jena.mpg.de>
 Description: collecting source code and presentations for R courses
 License: GPL-2
 LazyLoad: yes
-Depends: R (>= 1.10.0)
+Depends: R (>= 1.10.0), Rcpp
 

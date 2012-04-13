@@ -19,7 +19,7 @@ cppf <- cxxfunction(signature(ns="integer", xs="numeric")
 benchmark( f(1e4,1), lf(1e4,1), cppf(1e4,1) )	# speedup of about 30
 	
 # may write C code of the function body to a file for fast prototyping
-fx <- cxxfunction( signature(),paste(readLines( "src/rcpp_hello_world_inline.cpp"), collapse = "\n" ), plugin = "Rcpp" )
+fx <- cxxfunction( signature(),paste(readLines( "src/rcpp_hello_world.inline"), collapse = "\n" ), plugin = "Rcpp" )
 fx()
 
 .tmp.doesNotWorkBecauseOfIncludesAndFunctionDef <- function(){
@@ -38,7 +38,7 @@ fx()
 }
 
 #-------- RCpp package
-#Rcpp.package.skeleton("cppTemplatePackage")
+#Rcpp.package.skeleton("cppTemplatePackage", module=TRUE)
 pkg <- "twRCourses"
 # package needs to link to the Rcpp library (dll or so)
 # In file src/Makevars:	PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"`
@@ -56,10 +56,20 @@ pkg <- "twRCourses"
 }
 (tmp <- .Call( "rcpp_hello_world", PACKAGE = pkg ))
 
+mod <- Module("mod", PACKAGE = pkg)
+mod$norm(3,4)
+
+
 
 .tmp.testFromOtherWorkspace <- function(){
 	# R CMD INSTALL twRCourses
 	library(twRCourses)
 	pkg <- "twRCourses"
 	(tmp <- .Call( "rcpp_hello_world", PACKAGE = pkg ))
+	simpleNorm(3,4)
+	
+	#require(Rcpp) by dependencies
+	mod <- Module("mod", PACKAGE = pkg)
+	mod$simpleNorm(3,4)
+	
 }

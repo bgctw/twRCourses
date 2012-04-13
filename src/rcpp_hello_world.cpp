@@ -1,5 +1,4 @@
-// #include "rcpp_hello_world.h"
-#include <Rcpp.h>
+#include "rcpp_hello_world.h"
 
 SEXP rcpp_hello_world(){
     using namespace Rcpp ;

@@ -2,5 +2,6 @@ exportPattern("^[^\\.]")	#exports all variables that do not start with a period.
 
 #import(aNamespace)	# only required when extending S3 methods 
 
+import(Rcpp)
 useDynLib(twRCourses)	# only required when supplying C or FORTRAN code 
 
