@@ -1,3 +1,5 @@
+source("inst/Profiling/createTable.R")
+
 months <- month.abb[ sample.int(12,2000,replace=TRUE) ]
 pL <- list(months=months, years=1995:2000)
 n <- 20
@@ -110,3 +112,10 @@ creteTable11b <- function( parList ){
 	outer( parList$months, as.character(parList$years), paste)
 }
 (st11b <- system.time( replicate(n, creteTable11b(pL) ))["elapsed"])
+
+
+# reshape the matrix to a vector, apply paste and reshape to matrix afterwards
+
+# TODO
+# remove the list and with (confusing)
+# integrate with a fast function for profiling example
