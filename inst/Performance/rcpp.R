@@ -1,4 +1,5 @@
 #------ Benchmarking and byte code compiler
+#install.packages(c("rbenchmark","compiler","inline","Rcpp"))
 library(rbenchmark)
 library(compiler)
 

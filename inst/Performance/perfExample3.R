@@ -2,23 +2,47 @@ source("inst/Profiling/createTable.R")
 
 months <- month.abb[ sample.int(12,2000,replace=TRUE) ]
 pL <- list(months=months, years=1995:2000)
+
+tmp <- createTable1(pL)
+head(tmp)
+
 n <- 20
-(st1 <- system.time( replicate(n,creteTable1(pL)) )["elapsed"])
+(st1 <- system.time( replicate(n,createTable1(pL)) )["elapsed"])
 
 library(profr)
-p1 <- profr( replicate(n,creteTable1()), 0.02 )
+p1 <- profr( replicate(n,createTable1()), 0.02 )
 plot(p1)
 
 Rprof()
 #for( i in 1:n ) mySort(m)
-for( i in 1:n ) creteTable1()
+for( i in 1:n ) createTable1()
 #for( i in 1:n ) mySort3(m)
 Rprof(NULL)
 (t1 <- subset(summaryRprof()$by.self, select=c("total.time","self.time")))
 
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 # getting rid of with (eval)
-creteTable2 <- function( parList ){
+createTable2 <- function( parList ){
 	res <- character(0)
 	for( month in parList$months ){
 		resM <- character(0)
@@ -30,14 +54,16 @@ creteTable2 <- function( parList ){
 	}
 	res
 }
-(st2 <- system.time( replicate(n, creteTable2(pL) ))["elapsed"])
+(st2 <- system.time( replicate(n, createTable2(pL) ))["elapsed"])
 Rprof()
 #for( i in 1:n ) mySort(m)
-for( i in 1:n ) creteTable2(pL)
+for( i in 1:n ) createTable2(pL)
 #for( i in 1:n ) mySort3(m)
 Rprof(NULL)
 (t2 <- subset(summaryRprof()$by.self, select=c("total.time","self.time")))
 
+library(rbenchmark)
+benchmark( createTable1(pL), createTable2(pL) )
 
 creteTable2b <- function( parList ){
 	yearsC <- as.character(parList$years)
