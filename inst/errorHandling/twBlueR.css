@@ -1,0 +1,35 @@
+	/*
+	*/
+
+/* fix h1, so that it does not scroll (left 3m correspond to left imgage) */
+div.section h1 {
+	background: #4868D0;
+	text-align: center;
+	color: white;
+	margin: 0;
+	padding: 0.4em;
+	position:fixed; top:0px; right:0px; left:0px;
+}
+/* since h1 is fixed, prevent next element to scroll to top */
+div.section h1 + *  {
+	margin-top: 5em;
+}
+
+/* center standalone figures */
+div.figure {
+	text-align: center;
+	padding: 10px;
+}
+
+/* show image at the left side. make the image size and margin of div.section the same */
+body {
+  background: url(images/leftImg.png) repeat-y left top;
+  background-size: 80px auto;
+}
+body > div.section {
+  margin-left: 80px; 
+  padding-left: 1.5em; 
+}
+
+/*
+*/
