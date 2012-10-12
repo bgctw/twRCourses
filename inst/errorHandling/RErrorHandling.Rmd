@@ -6,7 +6,7 @@
 
 Annoyed by errors such as
 
-![](images/error1.jpg "Stack overflow at line 7")
+![Stack overflow at line 7](images/error1.jpg)\ 
 
 Principles
 
@@ -28,9 +28,9 @@ c <- fDivide(5,0)
 
 * Advantages: Fail early
 	+ notice the error as soon as possible
-	+ otherwise the return value INF might cause error far downstream
+	+ otherwise the return value INF might cause error far below
 * Disadvantages: stopped ungraceful
-	- We want to handle the error instead of directly throwing error messages at the user
+	- We want to handle the error instead of throwing directly
 	- We may want to clear up: close connections, delete temporary files, free memory ... 
 
 ## Confusing way: mixing error and return values
@@ -47,9 +47,7 @@ if( length(res$errMsg) ){
   # traceback()	# prints the call stack
   stop(paste("An unexpected error occured. Please contact the administrator."
   	," Details:",res$errMsg) )
-}else{
-  c <- res$result
-}  
+}else c <- res$result
 ```
 
 * Advantages: stopped gracefully
@@ -91,11 +89,11 @@ tryCatch({
 
 * Code is now quite clear
 
-* on error the value of the function to the `error` argument is returned
-	* Error is called from the level of the code-block of tryCatch
-	* Hence it know variables defined in this code block before the error 
+* error: returning value after error
+	* Called from the level of the code-block of tryCatch
+	* Hence, variables defined in this code block before the error are known 
 
-* Finally provides expression that is executed both on success and on error 
+* finally: expression that is executed both on success and on error 
 
 ## Summary
 
@@ -109,7 +107,5 @@ tryCatch({
 	
 ## Thank you	
 
-.
- 
-![](images/error2.jpg)
+![proceed or delete](images/error2.jpg)\ 
 
