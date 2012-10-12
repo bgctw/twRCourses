@@ -1,6 +1,0 @@
-
-syntax: regexp
-^\.RData$
-^\.project$
-syntax: regexp
-^\.project$
