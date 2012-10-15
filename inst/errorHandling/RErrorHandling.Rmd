@@ -105,6 +105,9 @@ tryCatch({
 	- ?try
 	- ?tryCatch
 	
+* other Languages
+	- <http://en.wikipedia.org/wiki/Exception_handling_syntax>
+	
 ## Thank you	
 
 ![proceed or delete](images/error2.jpg)\ 
