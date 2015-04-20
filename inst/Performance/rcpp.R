@@ -5,15 +5,8 @@ library(compiler)
 
 f <- function(n, x=1) for (i in 1:n) x=1/(1+x)
 lf <- cmpfun(f)
-benchmark(f(1e4,1), lf(1e4,1) )		# speedup of 4 to 5
+benchmark(f(1e4,1), lf(1e4,1) )[,1:4]		# speedup of 4 to 5
 
-
-#------- vectorizing example 
-x <- sample.int(10)
-y <- numeric(length(x)-1)
-for( i in 1:(length(x)-1) )
-	y[i] <- x[i] + 2*x[i+1] 
-y2 <- x[-length(x)] + 2*x[-1]
 
 #------- inline c++ code
 library(inline)
@@ -25,7 +18,7 @@ src <- 'int n = as<int>(ns);
 cppf <- cxxfunction(signature(ns="integer", xs="numeric")
 , body=src, plugin="Rcpp")	# takes a little time
 
-benchmark( f(1e4,1), lf(1e4,1), cppf(1e4,1) )	# speedup of about 30
+benchmark( f(1e4,1), lf(1e4,1), cppf(1e4,1) )[,1:4]	# speedup of about 30
 	
 # may write C code of the function body to a file for fast prototyping
 fx <- cxxfunction( signature(),paste(readLines( "src/rcpp_hello_world.inline"), collapse = "\n" ), plugin = "Rcpp" )

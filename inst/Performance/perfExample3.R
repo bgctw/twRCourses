@@ -33,14 +33,6 @@ Rprof(NULL)
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 # getting rid of with (eval)
 createTable2 <- function( parList ){
 	res <- character(0)
