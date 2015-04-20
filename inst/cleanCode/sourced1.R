@@ -1,2 +1,3 @@
 author <- "Thomas"
-workingDirectory <- "inst/cleanCode" 
+dataFileName <- "fancyData.csv"
+

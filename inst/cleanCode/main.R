@@ -1,8 +1,6 @@
-source("inst/cleanCode/sourced1.R")  # load configuration
+source("sourced1.R")  # load configuration
 
-prevWd <- setwd(workingDirectory)   # change to workingDir
-
-# do the work
+# do some work with fancy input data
 source("sourced2.R")
 
 # do some more work ...
