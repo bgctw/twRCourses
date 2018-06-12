@@ -2,12 +2,12 @@
      \docType{data}
      \alias{RespLamberty10}
      \title{Soil respiration Database.}
-     \description{}
+     \description{Example respiration data.}
      \usage{RespLamberty10}
      \format{data.frame with columns \describe{
 		\item{Study}{Identifier of the study. }
 		\item{resp}{Respiration}
-		\item{temp}{Temperature in °C}
+		\item{temp}{Temperature in degree C}
 		}
      }
      \source{http://www.nature.com/nature/journal/v464/n7288/extref/nature08930-s2.txt}
@@ -19,4 +19,4 @@
      	data(RespLamberty10)
      	plot( resp~temp, col=Study, data=RespLamberty10)
      }
-     
+

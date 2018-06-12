@@ -4,8 +4,10 @@ Version: 0.4
 Date: 2012-04-01
 Author: Thomas Wutzler
 Maintainer: Thomas Wutzler <twutz@bgc-jena.mpg.de>
-Description: collecting source code and presentations for R courses
+Description: Collecting source code and presentations for R courses.
 License: GPL-2
 LazyLoad: yes
+LinkingTo: Rcpp
 Depends: R (>= 1.10.0), Rcpp
-
+Suggests: RUnit
+RoxygenNote: 6.0.1

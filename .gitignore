@@ -1,3 +1,5 @@
 /.project
 /.RData
 /last.dump.rda
+.Rproj.user
+rstudio.Rproj
